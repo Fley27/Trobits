@@ -24,6 +24,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deee": "cd client && npm run deee",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run deee",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
