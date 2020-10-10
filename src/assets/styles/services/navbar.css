@@ -1,0 +1,96 @@
+.tab{
+    display: block;
+    width: 40%;
+    margin-top: 70px;
+}
+
+.fixe-navbar{
+    position: fixed;
+    top: 80px;
+}
+
+.static{
+    position: static;
+}
+#nav-tab{
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    padding: 0;
+    margin:  0;
+}
+
+#nav-tab .first .circle{
+    background: blue;
+    z-index: 99;
+}
+
+.nav-tabs .nav-item .circle{
+    font-size: 12px;
+    position: relative;
+    left: -6.3px;
+    top: 60px;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.nav-tabs .first .circle{
+    top: -7px;
+}
+
+
+.nav-tabs .nav-link{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-left: 2;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+
+.nav-fill .nav-item{
+    text-align: inherit;
+}
+
+.tab .nav-tabs .nav-link {
+    font-size: 20px;
+    background: none;
+}
+
+.tab .nav-tabs .first{
+    height: 100px;
+}
+
+
+.nav-item{
+    height: 60px;
+ }
+
+ a{
+     text-decoration: none;
+ }
+
+ .nav-tabs .nav-item span{
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+    top: 40px;
+    height: 100%;
+    font-size: 18px;
+ }
+
+ .nav-tabs .first span{
+    top: -20px;
+}
+
+
+/* NavBar */
+
+.navbar {
+    width: 90%;
+    margin: 30px auto;
+}

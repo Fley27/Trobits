@@ -1,0 +1,414 @@
+.achievement-challenges{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: auto 0;
+    padding-top: 120px;
+    margin-bottom: 120px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.achievement-titl h1{
+    font-size: 3.5em;
+}
+
+.achievement-title{
+    margin-bottom: 40px;
+}
+
+
+.achievement-challenges .notice{
+    width: 350px;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.048);
+}
+
+.achievement-challenges .notice::after{
+    left: 85.6%;
+    top: 0.1px;
+    bottom: 0;
+    height: 80px;
+    border-bottom-color: #000000;
+    transform: rotate(180deg);
+}
+
+.achievement-challenges .carousel{
+    width: 80%;
+    min-height: 300px;
+    margin: 0 auto;
+}
+
+.achievement-challenges .carousel .carousel-inner{
+    width: 75%;
+    min-height: 300px;
+    margin: 0 auto;
+}
+.achievement-challenges .carousel .carousel-inner .carousel-item{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.puppy img{
+    max-width: 200px;
+    height: 400px;
+    margin:  0 auto;
+}
+
+.puppy .description{
+    width: 60%;
+    min-width: 350px;
+    flex-direction: column;
+    margin: auto 0;
+    margin-left: 30px;
+}
+
+.title-desc{
+    color: #eee;
+    font-size: 19px;
+}
+.header-desc{
+    margin-bottom: 20px;
+}
+.sub-title{
+    font-size: 16px;
+    font-weight: 400;;
+}
+
+.footer-desc .know a{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-decoration: none;
+    color: blue;
+}
+
+.footer-desc .know  a i{
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    color: blue;
+}
+
+
+.footer-desc .know a:hover{
+    color: #fff ;
+} 
+
+.project{
+    width: 75%;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: -80px;
+}
+
+
+.project .col:nth-child(2){
+    margin-top: -50px;
+}
+
+.project h2{
+    margin: 10px auto;
+    font-size: 2.4em;
+    font-weight: 500;
+}
+
+.project h4{
+    margin: 10px auto;
+    font-size: 1.3em;
+}
+
+.box{
+    width: 30%;
+    min-width: 200px;
+    height: 60px;
+    border: 3px solid  blue;
+    margin: 0 auto;
+    margin-top: 80px;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(38, 3, 165, 0.19), 0 6px 6px rgba(38, 3, 165,0.23);
+}
+
+.box a{
+    font-size: 19px;
+    text-align: center;
+    text-decoration: none;
+    margin: auto 0;
+}
+
+.client{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+
+
+.client-title h1{
+    font-size: 2.5em;
+}
+
+.client-title{
+    margin-bottom: 80px;
+}
+
+.inner-client{
+    width: 90%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.client-item-box{
+    flex-direction: column;
+    justify-content: space-around;
+    height: 230px;
+    width: 90%;
+    margin: auto 0;
+    border: 0 solid;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: rgba(128, 128, 128, 0.148);
+    border-radius: 15px;
+}
+
+.header-client-box{
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50px;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.profile-client{
+    flex-direction: row;
+    margin: auto 0;
+    width: 40%;
+}
+
+.profile-client img{
+    width: 75px;
+    height:  75px;
+    border: 3px solid gray;
+    border-radius: 75px;
+}
+.profile-info{
+    margin-left: 25px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.profile-info h5{
+    font-size: 15px;
+}
+.profile-info h6{
+    font-size: 13px;
+}
+ 
+.company-logo img{
+    width: 60px;
+    height: 60px;
+}
+
+.body-client-box{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.body-client-box .icon-utf{
+    width: 15%;
+}
+
+.body-client-box .icon-utf h4{
+    font-size: 4vw;
+}
+
+.body-client-box .client-word{
+    width: 85%;
+}
+
+.footer-logo{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.footer-logo .image{
+    margin: 20px auto;
+    width: 17%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo .image img{
+    width: 60px;
+    height: 60px;
+    margin: auto 0;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .puppy .carousel-control-prev, 
+    .puppy .carousel-control-next{
+        width: 10%;
+    }
+    .achievement-titl h1{
+        font-size: 3.0em;
+    }
+}
+
+
+@media only screen and (max-width: 880px) {
+    .achievement-titl h1{
+        font-size: 2.8em;
+        margin-bottom: 40px;
+    }
+    .achievement-challenges .carousel{
+        width: 100%;
+    }
+    .puppy {
+        flex-direction: column;
+    }
+    .puppy .description {
+        width: 90%;
+    }
+    .puppy img {
+        height: 300px;
+    }
+    .project h2{
+        margin-bottom: 80px;
+    }
+    .profile-info h5{
+        font-size: 12px;
+    }
+    .profile-info h6{
+        font-size: 9px;
+    }
+    .client{
+        width: 100%;
+    }    
+
+    .client .carousel{
+        max-height: 150px;
+        width: 100%;
+    }
+
+    .inner-client{
+        max-height: 150px;
+    }
+
+    .body-client-box .client-word p {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .profile-info {
+        flex-direction: column;
+        min-width: 100px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .achievement-titl h1{
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .puppy img {
+        height: 200px;
+        margin: 5px 30px;
+    }
+    .puppy .description {
+        min-width: 250px;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .achievement-titl {
+        width: 300px;
+        margin: 10px auto;
+    }
+    .client-title h1{
+        font-size: 2em;
+    }
+    .achievement-titl h1{
+        font-size: 2.2em;        
+    }
+    .achievement-challenges .carousel{
+        width: 100%;
+    }
+    .puppy .description {
+        width: 90%;
+        padding: 30px;
+    }
+    .profile-client img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+    }
+    .profile-info{
+        margin-left: 5px;
+        height: 55px;
+    }
+
+    .footer-logo .image img{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .carousel-control-prev .carousel-control-prev-icon, 
+    .carousel-control-next .carousel-control-next-icon{
+        width: 15px;
+        height: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .achievement-titl h1{
+        font-size: 2em;        
+    }
+    .client-title h1{
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .achievement-titl h1{
+        font-size: 1.8em;        
+    }
+
+    .company-logo img{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 260px) {
+    .company-logo img{
+        display: none;
+    }
+}

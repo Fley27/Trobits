@@ -1,0 +1,25 @@
+.drop-message-component{
+    position: relative;
+    margin: auto 0;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+
+.drop-message-component .notice{
+    width: 350px;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.048);
+}
+
+.drop-message-component .box{
+    margin-top: 20px;
+}
+
+.drop-message-component .notice::after{
+    left: 85.6%;
+    top: 0.1px;
+    bottom: 0;
+    height: 80px;
+    border-bottom-color: #000000;
+    transform: rotate(180deg);
+}

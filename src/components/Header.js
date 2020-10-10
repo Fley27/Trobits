@@ -1,63 +1,112 @@
 import React from 'react';
 import jQuery from 'jquery';
- 
 import { NavLink } from 'react-router-dom';
 import logoImg from '../assets/images/logo.png';
-import menuIcon from '../assets/images/menu-icon.png';
-import menuHomeImg from '../assets/images/menu-home.png';
-import menuHomeActiveImg from '../assets/images/menu-home-active.png';
-import menuServiceImg from '../assets/images/menu-service.png';
-import menuPortfolioImg from '../assets/images/menu-portfolio.png';
-import menuAboutImg from '../assets/images/menu-about.png';
-import menuContactImg from '../assets/images/menu-contact.png';
- 
-const Header = () => {
-   var menuBShow = false;
-   function menuBIconClick() {
-      if (jQuery(".menuB-content").hasClass("show")) jQuery(".menuB-content").removeClass("show");
-      else jQuery(".menuB-content").addClass("show");
-   }
-   function menuBOpenClick() {jQuery(".menuB-content").addClass("show");}
-   function menuBCloseClick() {jQuery(".menuB-content").removeClass("show");}
-  
-   function menuClick(event) {
-      var posVal = 0, menuStr = jQuery(event.target)[0].innerText;
-      switch (menuStr) {
-         case "Home":      posVal = 0; break;
-         case "Services":    posVal = 150; break;
-         case "About":     posVal = 450; break;
-         case "Portfolio": posVal = 580; break;
-         case "Contact":   posVal = 700; break;
-         default:          posVal = 0; break;
+import Sidebar from './sidebar';
+import  '../assets/styles/header.css';
+
+
+class Header extends React.Component {
+   constructor(props){
+      super(props);
+      this.state = {
+          active : "home",
+          isPositionFixed: false,
+          isCarousel : false
       }
-      // setMenuClass(menuStr);
-      var realPosVal = document.documentElement.scrollHeight * posVal / 1000;
-      document.documentElement.scrollTop = document.body.scrollTop = realPosVal;
-   }
-   // setTimeout(() => { setMenuClass("Home"); }, 0);
+      this.addActiveClass = this.addActiveClass.bind(this);
+      this.handleScroll = this.handleScroll.bind(this);
+      this.handleResize = this.handleResize.bind(this);
+    }
+
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+      window.addEventListener("resize", this.handleResize);
+    }
+    handleResize = (e) => {
+      let isCarousel = null;
+      if(window.innerWidth <= 880)
+          isCarousel = true;
+      else
+          isCarousel = false;
+
+      this.setState({isCarousel});
+   };
+
   
-   return (
-       <div className="header-wrap">
-          <div className="header">
-            <div className="left-logo">
-               <img className="logo-img" src={logoImg} />
-               <label className="logo-label">Troibits</label>
-            </div>
-            <div className="menu menuA">
-               <div className="menuA-item" id="menuAHome" onClick={menuClick}>Home<div className="circle"></div></div>
-               <div className="menuA-item" id="menuAServices" onClick={menuClick}>Services<div className="circle"></div></div>
-               <div className="menuA-item" id="menuAAbout" onClick={menuClick}>About<div className="circle"></div></div>
-               <div className="menuA-item" id="menuAPortfolio" onClick={menuClick}>Portfolio<div className="circle"></div></div>
-               <div className="menuA-item" id="menuAContact" onClick={menuClick}>Contact<div className="circle"></div></div>
+  handleScroll(event) {
+      let scrollTop = event.srcElement.body.scrollTop,
+          itemTranslate = Math.min(0, scrollTop/3 - 60);
 
-               {/* <NavLink className="menuA-item" to="/">Home<div className="circle"></div></NavLink>
-               <NavLink className="menuA-item" to="/about">About<div className="circle"></div></NavLink>
-               <NavLink className="menuA-item" to="/services">Services<div className="circle"></div></NavLink>
-               <NavLink className="menuA-item" to="/portfolio">Portfolio<div className="circle"></div></NavLink>
-               <NavLink className="menuA-item" to="/contact">Contact<div className="circle"></div></NavLink> */}
+       if(event.srcElement.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
+          this.setState({isPositionFixed: true});
+       else  
+          this.setState({isPositionFixed: false});
+  }
 
+    addActiveClass(e){
+      const clicked = e.target.id;
+      console.log(clicked);
+      this.setState({active : clicked});
+   }
+
+
+   render(){  
+      const {isCarousel} = this.state;
+      if(!isCarousel)
+         
+         return (
+            <div className= {`header-wrap${this.state.isPositionFixed ? ' fixed' : ""}`} onScroll = {this.handleScroll}>
+               <div className="header">
+                  <div className="left-logo">
+                     <img className="logo-img" src={logoImg} />
+                     <label className="logo-label">Troibits</label>
+                  </div>
+                  <div className="menu menuA">
+                     <NavLink id = "home"className= {`menuA-item ${this.state.active === "home" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/">
+                           Home
+                           <div id = "home" className={`circle ${this.state.active === "home" ? "" : " d-none"}`}></div>
+                     </NavLink>
+                     <NavLink id = "services" className= {`menuA-item ${this.state.active === "services" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/services">
+                           Services
+                           <div id = "services" className={`circle ${this.state.active === "services" ? "" : " d-none"}`}></div>
+                     </NavLink>
+                     <NavLink id = "about" className= {`menuA-item ${this.state.active === "about" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/about">
+                           About
+                           <div id = "about" className={`circle ${this.state.active === "about" ? "" : " d-none"}`}></div>
+                     </NavLink>
+                     <NavLink id = "portfolio" className= {`menuA-item ${this.state.active === "portfolio" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/portfolio">
+                           Portfolio
+                           <div id = "portfolio" className={`circle ${this.state.active === "portfolio" ? "" : " d-none"}`}></div>
+                     </NavLink>
+                     <NavLink id = "blog" className= {`menuA-item ${this.state.active === "blog" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/blog">
+                           Blog
+                           <div id = "blog" className={`circle ${this.state.active === "blog" ? "" : " d-none"}`}></div>
+                     </NavLink>
+                     <NavLink id = "contact" className= {`menuA-item ${this.state.active === "contact" ? " blue text-primary" : ""}`} onClick = {this.addActiveClass} to="/contact">
+                           Contact
+                           <div id = "contact" className={`circle ${this.state.active === "contact" ? "" : " d-none"}`}></div>
+                     </NavLink> 
+                  </div>
+               </div>
             </div>
-            <div className="menu menuB">
+        );
+      else
+         return(<div className = 'd-none'></div>)
+   }
+}
+ 
+export default Header;
+
+
+/*
+   <div className="menu menuB">
                <div className="menu-icon" onClick={menuBOpenClick}><img src={menuIcon} /></div>
                <div className="menuB-content">
                   <div className="menuB-topbar">
@@ -76,21 +125,13 @@ const Header = () => {
                   <div className="menuB-item" id="menuBPortfolio" onClick={menuClick}>
                      Portfolio<img src={menuPortfolioImg}></img>
                   </div>
+                  <div className="menuB-item" id="menuBPortfolio" onClick={menuClick}>
+                     Blog<img src={menuPortfolioImg}></img>
+                  </div>
                   <div className="menuB-item" id="menuBContact" onClick={menuClick}>
                      Contact<img src={menuContactImg}></img>
                   </div>
 
-                  {/* <NavLink className="menuB-item" to="/">Home</NavLink>
-                  <NavLink className="menuB-item" to="/about">About</NavLink>
-                  <NavLink className="menuB-item" to="/services">Services</NavLink>
-                  <NavLink className="menuB-item" to="/portfolio">Portfolio</NavLink>
-                  <NavLink className="menuB-item" to="/contact">Contact</NavLink> */}
-
                </div>
             </div>
-          </div>
-       </div>
-    );
-}
- 
-export default Header;
+*/

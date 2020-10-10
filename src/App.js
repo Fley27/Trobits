@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jQuery from 'jquery';
 import * as THREE from 'three';
 import OrbitControls from 'three-orbitcontrols';
@@ -8,6 +7,7 @@ import FBXLoader from 'three-fbxloader-offical';
 import './App.css';
 
 import Header from './components/Header';
+import ServicesPages from './pages/services';
 import Home      from './components/Home';
 import Services    from './components/Services';
 import Yolo      from './components/Yolo';
@@ -300,7 +300,6 @@ class App extends Component {
     return (
       <div>
         <img id="homeBack" src={homeBackImg} />
-        <Header />
         <div className="main-wrap">
           <Home />
           <Services />

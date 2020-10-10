@@ -1,8 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+
+import React, {Fragment} from "react";
+import ReactDOM from "react-dom";
 import registerServiceWorker from './registerServiceWorker';
-// import './index.css';
-console.log('react dom rendering')
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from "./App";
+import Services from './pages/services'
+import Header from './components/Header'
+import './index.css'
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+ReactDOM.render(
+    <BrowserRouter>
+        <div className="main-wrap d-flex">
+            <Header />
+            <Switch>
+              <Route path="/"           component={App} exact/>
+              <Route path="/services"     component={Services}/>
+            </Switch>
+          </div> 
+    </BrowserRouter>
+    ,
+  document.getElementById("root")
+);
+
 registerServiceWorker();
